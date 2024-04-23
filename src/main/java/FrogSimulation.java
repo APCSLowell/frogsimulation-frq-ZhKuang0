@@ -14,16 +14,31 @@ public class FrogSimulation
 	//implementation is below, but not important
 	
 	public boolean simulate()
-	{ 
-		/* to be implemented in part (a) */
+{
+    int frogPosition = 0;
+    int hopsRemaining = maxHops;
 
-	}
+    while(frogPosition < goalDistance &&
+            frogPosition >= 0 &&
+            hopsRemaining > 0)
+    {
+        frogPosition += hopDistance();
+        hopsRemaining--;
+    }
+
+    return frogPosition >= goalDistance;
+}
 	
 	public double runSimulations(int num)
-	{ 
-		/* to be implemented in part (b) */ 
+{
+    int successfulRuns = 0;
 
-	}
+    for(int run = 1; run <= num; run++)
+        if(simulate())
+            successfulRuns++;
+
+    return successfulRuns / (double) num;
+}
 	
 	
 	//ignore the code below this line
